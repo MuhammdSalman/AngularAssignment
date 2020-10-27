@@ -1,0 +1,45 @@
+<table class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions"
+  [dtTrigger]="dtTrigger">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users$; let i = index" data-toggle="modal" data-target="#exampleModal" (click)="detail(i)">
+      <td>{{ user.userId }}</td>
+      <td>{{ user.title }}</td>
+      <!-- <td>{{ user.website }}</td> -->
+    </tr>
+  </tbody>
+</table>
+<!-- <div type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</div> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <h6>Title :  <b>{{title}}</b></h6>
+        <h6>Detail</h6>
+        <p>{{body}}</p>
+         
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,226 @@
+
+<div class="page-header" filter-color="orange">
+  <!-- <div class="page-header-image" style="background-image:url(assets/img/login.jpg)"></div> -->
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-md-12 content-center">
+              <div class="card card-login card-plain">
+                  <form #registerForm="ngForm" class="form" method="" action="">
+                      <!-- <div class="header header-primary text-center">
+                          <div class="logo-container">
+                              <img src="assets/img/now-logo.png" alt="">
+                          </div>
+                      </div> -->
+                      <div class="text-center">
+                          <h5>Create Your Account</h5>
+                      </div>
+                      <div class="content">
+                          <div class="row justify-content-end">
+                              <div class="col-md-6 col-xl-4 form-group">
+                                  <div class="input-group form-group-no-border input-lg"
+                                      [ngClass]="{'input-group-focus':focus===true}">
+                                      <div class="input-group-prepend">
+                                          <span class="input-group-text"> <i
+                                                  class="now-ui-icons users_circle-08"></i></span>
+                                      </div>
+                                      <input type="text" autocomplete="off" class="form-control" minlength="3"
+                                          required maxlength="32" placeholder="User Name" (focus)="focus=true"
+                                          popover="Vivamus" placement="top" (blur)="focus=false" name="FirstName" [pattern]='specialCharactersRemover'
+                                          #FirstName=ngModel [(ngModel)]="firstNameText">
+                                      
+                                  </div>
+                                  <div *ngIf="FirstName.invalid && FirstName.touched">
+                                      <div *ngIf="FirstName?.errors.required">
+                                          <span class="label">
+                                              <span class="text-danger pull-left">Full Name is required</span>
+                                          </span>
+                                      </div>
+                                      <div *ngIf="FirstName?.errors.minlength">
+                                          <span class="label">
+                                              <span class="text-danger pull-left">Atleast 3 chracters allowed
+                                              </span>
+                                          </span>
+                                      </div>
+                                      <div *ngIf="FirstName?.errors.pattern">
+                                          <span class="label">
+                                              <span class="text-danger pull-left">
+                                                  These characters . , - / : ; () & @ “ ‘ are not allowed
+                                              </span>
+                                          </span>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-3 col-xl-4">
+
+                              </div>
+                          </div>
+
+                          <div class="row justify-content-end">
+                              <div class="col-md-6 col-xl-4 form-group">
+                                  <div class="input-group form-group-no-border input-lg"
+                                      [ngClass]="{'input-group-focus':focus2===true}">
+                                      <div class="input-group-prepend">
+                                          <span class="input-group-text"><i
+                                                  class="now-ui-icons ui-1_email-85"></i></span>
+                                      </div>
+                                      <input type="email" placeholder="Email" autocomplete="off"
+                                          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,})+$" class="form-control"
+                                          (focus)="focus2=true" #email=ngModel (blur)="focus2=false" required
+                                          maxlength="255" name="email" [(ngModel)]="emailAddress" />
+                                  </div>
+                                  <div *ngIf="email.invalid && email.touched">
+                                      <div *ngIf="email?.errors.required">
+                                          <span class="label">
+                                              <span class="text-danger pull-left">Email Field is required</span>
+                                          </span>
+                                      </div>
+                                      <div *ngIf="email?.errors.pattern">
+                                          <span class="label">
+                                              <span class="text-danger pull-left">Email Format is Incorrect</span>
+                                          </span>
+                                      </div>
+                                  </div>
+                              </div>
+                              
+                              <div class="col-md-3 col-xl-4">
+                                 
+                              </div>
+                          </div>
+                          <div class="row justify-content-end">
+                              <div class="col-md-6 col-xl-4 form-group">
+                                  <div class="input-group form-group-no-border input-lg"
+                                      [ngClass]="{'input-group-focus':focus3===true}">
+                                      <div class="input-group-prepend">
+                                          <span class="input-group-text"><i
+                                                  class="now-ui-icons ui-1_lock-circle-open"></i></span>
+                                      </div>
+                                      <input type="password" placeholder="Password" class="form-control pwd-show"
+                                          [pattern]='passwordPatteren' (focus)="focus3=true" (blur)="focus3=false"
+                                          required minlength="8" maxlength="32" name="pwd" autocomplete="off"
+                                          #pwd=ngModel [(ngModel)]="password" />
+                                      <div class="input-group-prepend">
+                                          
+                                      </div>
+                                  </div>
+                                  <div *ngIf="pwd.invalid && pwd.touched">
+                                      <div *ngIf="pwd?.errors.required">
+                                          <span class="label">
+                                              <span class="text-danger pull-left">Password is required</span>
+                                          </span>
+                                      </div>
+                                      <div *ngIf="pwd?.errors.pattern">
+                                          <span class="label">
+                                              <span class="text-danger pull-left">Password must be at least 8
+                                                  characters long, contains
+                                                  at least 1-numeric, 1-special character and includes both lowercase
+                                                  and uppercase characters.</span>
+                                          </span>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-3 col-xl-4">
+                                 
+                              </div>
+                          </div>
+                          <div class="row justify-content-end">
+                              <div class="col-md-6 col-xl-4 form-group">
+                                  <div class="input-group form-group-no-border input-lg">
+                                      <div class="input-group-prepend">
+                                          <span class="input-group-text"><i
+                                                  class="now-ui-icons ui-1_lock-circle-open"></i></span>
+                                      </div>
+                                      <input type="password" placeholder="Confirm Password"
+                                          class="form-control conpwd-show" [pattern]='passwordPatteren'
+                                          (focus)="focus3=true" (blur)="focus3=false" required minlength="8"
+                                          maxlength="32" name="conpwd" autocomplete="off" (input)="matchPassword()"
+                                          #conpwd=ngModel [(ngModel)]="confirm_password" />
+                                      <div class="input-group-prepend">
+                                          
+                                      </div>
+                                  </div>
+                                  <div *ngIf="conpwd.touched">
+                                      <div *ngIf="mismatch">
+                                          <span class="label">
+                                              <span class="text-danger pull-left">Confirm Password should match
+                                                  Password</span>
+                                          </span>
+                                      </div>
+                                      <div *ngIf="conpwd.invalid && conpwd?.errors.required">
+                                          <span class="label">
+                                              <span class="text-danger pull-left">Confirm Password is required</span>
+                                          </span>
+                                      </div>
+                                      <div *ngIf="conpwd.invalid && conpwd?.errors.pattern">
+                                          <span class="label">
+                                              <span class="text-danger pull-left">Password must be at least 8
+                                                  characters long, contains
+                                                  at least 1-numeric, 1-special character and includes both lowercase
+                                                  and uppercase characters.</span>
+                                          </span>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-3 col-xl-4">
+                                  
+                              </div>
+                          </div>
+                          <div class="row justify-content-end" *ngFor="let item of phoneNumbers; let i = index;">
+                            <div class="col-md-6 col-xl-4 form-group" >
+                                <div class="input-group form-group-no-border input-lg"
+                                    [ngClass]="{'input-group-focus':focus===true}">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"> <i
+                                                class="now-ui-icons users_circle-08"></i></span>
+                                    </div>
+                                    <input type="text" autocomplete="off" class="form-control" 
+                                        required maxlength="32" placeholder="Phone{{i}}" (focus)="focus=true"
+                                        popover="Vivamus" placement="top" (blur)="focus=false" name="Phone{{i}}" 
+                                        #Phone=ngModel [(ngModel)]="item.phoneNo">
+                                    
+                                </div>
+                                <div *ngIf="Phone.invalid && Phone.touched">
+                                    <div *ngIf="Phone?.errors.required">
+                                        <span class="label">
+                                            <span class="text-danger pull-left">Full Name is required</span>
+                                        </span>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-xl-4" >
+                              
+                            </div>
+                        </div>
+                        <button class="btn btn-dark"  style="background-color: gray;margin-left: 500px; margin-bottom: 10px;" (click)="addNumber()">Add phone</button>
+                      </div>
+                      
+                      <div class="row justify-content-center">
+                          <div class="col-md-6 col-xl-4">
+                              <div class="footer text-center">
+                                  <button  (click)="save()"
+                                      [disabled]="!registerForm.form.valid || showSpinner || mismatch"
+                                      class="btn btn-primary btn-round btn-lg btn-block">
+                                      <span *ngIf="!showSpinner">Continue</span>
+                                      
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+
+                      <!-- <div class="text-center">
+                          <h6>
+                              <a href="javascript:void(0);" class="link">Already have an account?</a>
+                          </h6>
+                      </div> -->
+                  </form>
+              </div>
+          </div>
+      </div>
+    
+
+     
+
+  </div>
+</div>
+
+<!-- [routerLink]="['/account/thankyou']" -->
